@@ -1,0 +1,181 @@
+TP5
+
+Partie B
+
+1. Que signifie public class Point3D extends PointPlan?
+	Ca signifie que Point3D hérite de la classe PointPlan
+	
+2. Énumérer toutes les anomalies de conception de la classe Point3D ainsi que les instructions rejetées par le
+compilateur. Justifier chaque réponse.
+
+		1)	public Point3D(float x, float y, float z) {
+				this.abscisse = x ;  
+				this.ordonnee = y ;
+				this.azimut = z ;
+				}
+				
+			IL faut remplacer par super(x,y) car on utilise les variable d'instance de point plan
+			
+		2)	public Point3D(Point3D p) {
+				this.abscisse = p.abscisse ; 
+				this.ordonnee = p.ordonnee ;
+				this.azimut = p.azimut ;
+				}
+			
+			Il faut faire super(p)
+			
+			
+		3)	public float getAbscisse() {
+			return this.abscisse ;
+			}
+			public float getOrdonnee() {
+			return this.ordonnee ;
+			}
+			
+			On n'a pas besoin de ces methodes car elles sont héritées de PointPlan
+			
+3. Représenter le diagramme de classe des classes PointPlan et Point3D une fois les erreurs corrigées
+
+	_________________________________
+	| PointPlan 					|
+	|_______________________________|
+	|float abscisse					|
+	|float ordonnee					|
+	|_______________________________|
+	|+PointPlan()					|
+	|+PointPlan(float x, float y)	|
+	|+PointPlan(PointPlan p)		|
+	|+getAbscisse()					|
+	|+getOrdonnee()					|
+	|+toString()					|
+	|_______________________________|
+		   / \
+			|
+			|
+			|
+			|
+			|
+			|
+	________|____________________________________
+	| Point3D									|
+	|___________________________________________|
+	|float azimut								|
+	|___________________________________________|
+	|+Point3D()									|
+	|+Point3D(float x, float y, float(z)		|
+	|+Point3D(Point3D p)						|
+	|+getAzimut()								|
+	|___________________________________________|
+
+
+
+
+Partie C
+
+1. Expliquez la différence qu'il existe entre la surcharge d'une méthode et la redéfinition d’une méthode
+	surcharger une methode signifie qu'on modifie sa signature(parametre) ex brouter
+	Redéfinir une methode signifie la réimplémenter différemment ex ruminer
+	
+2. De quoi hérite la VacheALait ; peut-elle y avoir librement accès ?
+	VacheALait hérite de Vache, elle peut accéder à toutes les méthodes publiques de la classe Vache
+
+3. A quoi correspond l'appel de l'instruction super() ?
+	L'appel du constructeur de la classe mère
+	
+4. De combien de méthode(s) brouter() la VacheALait dispose-t-elle ?
+	Elle dispose de deux méthodes brouter: celle de sa mere et celle qui a été surchargée
+	
+	
+Partie D : Une vache Pie Noire est une vache à lait "particulière" dans le sens où elle à une robe avec des tâches noires et blanches.
+
+1. De quoi hérite la PieNoire ; peut-elle y avoir librement accès ?
+
+	Elle hérite de la classe VacheAlait
+	
+2. A quoi correspond l'appel de l'instruction super() ?
+	Appel du constructeur par défaut de VacheAlait
+	
+3. De combien de méthode brouter()la PieNoire dispose-t-elle ?
+ 	4 methodes 
+ 	
+4. Est-ce que ce code contient des surcharges ou/et des redéfinitions de méthodes ?
+
+	Oui redéfinition : public void brouter(float herbe, float marguerite)
+	surcharge : public void brouter(Nourriture nourriture)
+	
+5. Qu'elle est la méthode de PieNoire qui subit un masquage ?	
+	la méthode brouter car elle est redéfinie
+	
+6. Représenter le diagramme de classe des classes Vache, VacheLAit et PieNoire une fois les erreurs corrigées
+
+	_____________________________________________________________
+	| Vache														|
+	|___________________________________________________________|
+	|String petitNom											|
+	|float poids												|
+	|float panse												|
+	|float age													|
+	|___________________________________________________________|
+	|+Vache()													|
+	|+VacheString petitNom, float age,float poids, float panse)	|
+	|+getNom()													|
+	|+getPoids()												|
+	|+getPanse()												|
+	|+getAge()													|
+	|+setNom()													|
+	|(etc setteur)												|
+	|+brouter(float quantite)									|
+	|+ruminer()													|
+	|+vieillir()												|			
+	|+toString()												|
+	|___________________________________________________________|
+		   / \
+			|
+			|
+			|
+			|
+			|
+			|
+	________|____________________________________________________
+	| VacheALait												|
+	|___________________________________________________________|
+	|float lait													|
+	|___________________________________________________________|
+	|+VacheAlait()												|
+	|+VacheALait(String petitNom, float age, float poids,		|
+	|	float panse, float lait	)								|
+	|+getLait()													|
+	|+setLait()													|
+	|+brouter(float herbe, marguerite)							|
+	|+ruminer()													|	
+	|+toString()												|
+	|___________________________________________________________|
+		   / \
+			|
+			|
+			|
+			|
+			|
+			|
+	________|________________________________________________________________
+	| PieNoire																|
+	|_______________________________________________________________________|
+	|int nombreTacheNoire													|
+	|int nombreTacheBlanche													|
+	|_______________________________________________________________________|
+	|+PieNoire()															|
+	|+PieNoire( String petitNom, float age, float poids, 					|
+	|	float panse, float lait,  											|
+	|	int nombreTacheBlanche, int nombreTacheNoire)						|
+	|+getNombreTacheNoire()													|
+	|+getNombreTacheBlanche()												|
+	|+setNombreTacheBlanche()												|
+	|+setNombreTacheNoire()													|
+	|+brouter(float herbe, float marguerite)								|
+	|+brouter(Nourriture nourriture)										|
+	|+toString()															|
+	|_______________________________________________________________________|
+	
+	
+	
+	

@@ -1,0 +1,24 @@
+1) mzin --> DIFFERENCES
+2) EGALES
+3) DIFFERENCES
+4a) EGALES
+4b) DIFFERENTES
+5) EGALES
+
+PARTIE B
+1) Probleme a la compilation
+a est un animal, un animal ne mange pas
+on ne peut pas caster chat en chien car ce sont deux classes qui héritent de animal: chat est un animal chat n'est pas un chien
+lorsqu'on crée l'objet chien il faut ne faut pas créer autre chose
+
+
+2)Je crie
+J'aboie
+J'aboie
+Je crie
+Je miaule
+Je lappe
+Je dévore
+J'aboie
+J'aboie
+
